@@ -1,0 +1,247 @@
+@mixin hoverButton() {
+  background-color: lighten($backgroundButton, 10%);
+  box-shadow: $buttonShadow;
+  color: $grayBlue;
+}
+
+@mixin logoSize() {
+  width: 55px;
+  height: 55px;
+}
+
+@mixin LogoFontStyle {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+}
+
+$highlightWidth: (
+        awesome: 4.2em,
+        adventure: 228px,
+        start: 2.2em
+);
+
+@mixin highlight {
+  content: '';
+  display: block;
+  background: $colorUnderline;
+}
+
+body {
+  background-color: $contentBackground;
+  font-family: $font;
+  color: $fontColor;
+  font-size: $fontSizeBody;
+  line-height: 30px;
+  margin: 0;
+  min-width: $minWidthAdaptive;
+}
+
+.header {
+  background: $headerImage no-repeat center;
+  background-size: 100%;
+  border-radius: 0 0 40% 0;
+  height: 900px;
+  position: relative;
+
+  .header-wrap {
+    margin: $marginContent;
+
+    .landing-logo {
+      display: inline-flex;
+
+      img {
+        margin: 25px 20px 0 0;
+        @include logoSize();
+      }
+
+      p {
+        margin-top: 30px;
+        color: $fontColor;
+        @include LogoFontStyle;
+      }
+
+      span {
+        font-size: 13px;
+      }
+    }
+
+    .header_heading {
+      margin: 60px 0 35px 0;
+      font-family: $fontSourceSansPro;
+      font-size: 90px;
+      font-weight: 700;
+      width: 610px;
+      color: $fontColor;
+      line-height: 90px;
+
+      &:after {
+        @include highlight;
+        margin-top: -33px;
+        width: map-get($highlightWidth, awesome);
+        height: 35px;
+      }
+    }
+
+    .header_text {
+      margin: 0 40px 70px 0;
+      white-space: pre-line;
+    }
+  }
+}
+
+button {
+  background-color: $backgroundButton;
+  color: $buttonFontColor;
+  font-size: 20px;
+  font-weight: 600;
+  width: 180px;
+  height: 60px;
+  border-radius: $borderButtonRadius;
+  border: none;
+
+  &:hover {
+    @include hoverButton();
+  }
+}
+
+.section_text {
+  font-family: $fontSourceSansPro;
+  text-align: center;
+  font-weight: 600;
+  font-size: 50px;
+
+  &:after {
+    @include highlight;
+    margin: -10px auto 0 50.6%;
+    width: map-get($highlightWidth, adventure);
+    height: 20px;
+  }
+}
+
+
+.section_card_wrap {
+  margin: $marginContent;
+  display: flex;
+
+  .section_card {
+    width: 100%;
+    margin: auto 20px 17% auto;
+    padding: 20px;
+    height: 550px;
+    background: $colorBlocks;
+    border-radius: $borderRadiusBlocks;
+    position: relative;
+
+    .section_card_img {
+      width: 100%;
+      border-radius: $borderRadiusBlocks;
+    }
+
+    .section_card_heading {
+      color: $colorHeaderBlocks;
+      font-size: 30px;
+      display: block;
+      width: fit-content;
+      margin: 15px auto 0 auto;
+
+      .section_card_underline {
+        display: block;
+        margin-top: -15px;
+        background-color: $colorUnderline;
+        height: 20px;
+      }
+    }
+
+    .section_card_text {
+      color: $gray;
+      text-align: center;
+    }
+  }
+}
+
+.section_banner {
+  margin: -90px 15% 0 17%;
+  width: 65%;
+  height: 180px;
+  background: $gradient;
+  border-radius: $borderRadiusBlocks;
+  position: absolute;
+  min-width: 900px;
+
+  .section_banner_text_wrap {
+    margin: 0 130px 0 130px;
+
+    .section_banner_heading {
+      text-align: left;
+      font-family: $fontSourceSansPro;
+      font-size: 40px;
+      font-weight: 700;
+      color: $fontColor;
+
+      &:after {
+        @include highlight;
+        margin: -12px 0 0 30em - 26em;
+        width: map-get($highlightWidth, start);
+        height: 15px;
+      }
+    }
+
+    .section_banner_text {
+      text-align: left;
+      font-size: 20px;
+      font-weight: normal;
+      color: $gray;
+    }
+  }
+
+  .section_banner_button {
+    @extend button;
+    margin: -105px auto auto 75%;
+    position: absolute;
+
+    &:hover {
+      @include hoverButton();
+    }
+  }
+}
+
+.footer {
+  background: $colorBlocks;
+  color: $gray;
+  min-width: $minWidthAdaptive;
+
+  .footer-wrap {
+    padding: 130px 170px 40px 170px;
+    display: flex;
+    align-items: center;
+
+    .footer_logo {
+      img {
+        @include logoSize();
+      }
+
+      p {
+        margin: -60px 0 0 70px;
+        @include LogoFontStyle;
+      }
+
+      span {
+        font-size: 13px;
+      }
+    }
+  }
+
+  .footer_text {
+    padding: 0 20% 0 24%;
+    font-size: 18px;
+    line-height: 25px;
+  }
+
+  .footer-cr {
+    width: 45%;
+    text-align: right;
+  }
+}
