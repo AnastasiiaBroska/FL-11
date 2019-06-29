@@ -119,11 +119,11 @@ header:after {
     clip-path: polygon(100% 0, 0 0, 100% 100%);
 }
 
-.section {
+.content {
     margin-top: -6vw;
 }
 
-.section-triangles {
+.content-triangles {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-template-rows: 55% 45%;
@@ -131,14 +131,14 @@ header:after {
     text-align: left;
 }
 
-.section-triangle-white {
+.content-triangle-white {
     color: #fff;
     grid-column-start: 2;
     position: relative;
     margin-top: -2vw;
 }
 
-.section-triangle-black {
+.content-triangle-black {
     font-size: 1.4vw;
 }
 
