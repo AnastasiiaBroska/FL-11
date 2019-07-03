@@ -1,0 +1,11 @@
+let a1 = parseFloat(prompt('Enter a1', '0'));
+let a2 = parseFloat(prompt('Enter a2', '0'));
+let b1 = parseFloat(prompt('Enter b1', '0'));
+let b2 = parseFloat(prompt('Enter b2', '0'));
+let c1 = parseFloat(prompt('Enter c1', '0'));
+let c2 = parseFloat(prompt('Enter c2', '0'));
+let half = 2;
+let m1 = (a1 + b1) / half;
+let m2 = (a2 + b2) / half;
+let result = m1 === c1 && m2 === c2;
+console.log(result);
