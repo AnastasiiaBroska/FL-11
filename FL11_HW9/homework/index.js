@@ -9,9 +9,6 @@ function getNumbers(str) {
     return numbers;
 }
 
-console.log(getNumbers('string'));
-console.log(getNumbers('n1um3ber95'));
-
 //task 1
 function findTypes(...n) {
     let result = {};
@@ -28,9 +25,6 @@ function findTypes(...n) {
     return result;
 }
 
-console.log(findTypes('number'));
-console.log(findTypes(null, 5, 'hello')); // eslint-disable-line
-
 //task 2
 function executeForEach(array, func) {
     for (let value of array) {
@@ -38,20 +32,12 @@ function executeForEach(array, func) {
     }
 }
 
-executeForEach([1, 2, 3], function (el) { // eslint-disable-line
-    console.log(el)
-});
-
 //task 3
 function mapArray(array, func) {
     let mappedArray = [];
     executeForEach(array, value => mappedArray.push(func(value)));
     return mappedArray;
 }
-
-console.log(mapArray([2, 5, 8], function (el) { // eslint-disable-line
-    return el + 3; // eslint-disable-line
-}));
 
 //task 4
 function filterArray(array, func) {
@@ -64,10 +50,6 @@ function filterArray(array, func) {
     return filteredArray;
 }
 
-console.log(filterArray([2, 5, 8], function (el) { // eslint-disable-line
-    return el > 3; // eslint-disable-line
-}));
-
 //task 5
 function showFormattedDate(date) {
     let monthNames = [
@@ -79,15 +61,10 @@ function showFormattedDate(date) {
     return `Date: ${monthNames[month]} ${day} ${year}`;
 }
 
-console.log(showFormattedDate(new Date('2019-01-27T01:10:00')));
-
 //task 6
 function canConvertToDate(date) {
     return !isNaN(Date.parse(date));
 }
-
-console.log(canConvertToDate('2016-13-18T00:00:00'));
-console.log(canConvertToDate('2016-03-18T00:00:00'));
 
 //task 7
 function daysBetween(firstDate, secondDate) {
@@ -102,14 +79,12 @@ function millisToDays(millis) {
     return millis / MILLIS_IN_SECOND / SECONDS_IN_MINUTE / MINUTES_IN_HOUR / HOURS_IN_DAY;
 }
 
-console.log(daysBetween(new Date('2016-03-18T00:00:00'), new Date('2016-04-19T00:00:00')));
-
 //task 8
 let data = [
     {
         '_id': '5b5e3168c6bf40f2c1235cd6',
         'index': 0,
-        ' birthday ': '2016-03-18T00:00:00',
+        'birthday': '2016-03-18T00:00:00',
         'eyeColor': 'green',
         'name': 'Stein',
         'favoriteFruit': 'apple'
@@ -117,7 +92,7 @@ let data = [
     {
         '_id': '5b5e3168e328c0d72e4f27d8',
         'index': 1,
-        ' birthday ': '1991-02-11T00:00:00',
+        'birthday': '1991-02-11T00:00:00',
         'eyeColor': 'blue',
         'name': 'Cortez',
         'favoriteFruit': 'strawberry'
@@ -125,7 +100,7 @@ let data = [
     {
         '_id': '5b5e3168cc79132b631c666a',
         'index': 2,
-        ' birthday ': '1984-04-17T00:00:00',
+        'birthday': '1984-04-17T00:00:00',
         'eyeColor': 'blue',
         'name': 'Suzette',
         'favoriteFruit': 'apple'
@@ -133,7 +108,7 @@ let data = [
     {
         '_id': '5b5e31682093adcc6cd0dde5',
         'index': 3,
-        ' birthday ': '1994-04-17T00:00:00',
+        'birthday': '1994-04-17T00:00:00',
         'eyeColor': 'green',
         'name': 'George',
         'favoriteFruit': 'banana'
@@ -141,7 +116,7 @@ let data = [
 ];
 
 function getAmountOfAdultPeople(people) {
-    let filteredPeople = filterArray(people, person => isAdult(person[' birthday ']));
+    let filteredPeople = filterArray(people, person => isAdult(person['birthday']));
     return filteredPeople.length;
 }
 
@@ -152,30 +127,24 @@ function isAdult(birthDate) {
     return daysBetween(now, birthDate) > DAYS_IN_YEAR * ADULT_AGE;
 }
 
-console.log(getAmountOfAdultPeople(data));
-
 //task 9
 function keys(object) {
     let keys = [];
     for (let objectKey in object) {
-        if (Object.prototype.hasOwnProperty.call(object, objectKey)) {
+        if (object.hasOwnProperty(objectKey)) {
             keys.push(objectKey);
         }
     }
     return keys;
 }
 
-console.log(keys({keyOne: 1, keyTwo: 2, keyThree: 3}));
-
 //task 10
 function values(object) {
     let values = [];
     for (let objectKey in object) {
-        if (Object.prototype.hasOwnProperty.call(object, objectKey)) {
+        if (object.hasOwnProperty(objectKey)) {
             values.push(object[objectKey]);
         }
     }
     return values;
 }
-
-console.log(values({keyOne: 1, keyTwo: 2, keyThree: 3}));
