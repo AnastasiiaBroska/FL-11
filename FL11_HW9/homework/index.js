@@ -124,7 +124,7 @@ function isAdult(birthDate) {
     const DAYS_IN_YEAR = 365;
     const ADULT_AGE = 18;
     let now = new Date();
-    return daysBetween(now, birthDate) > DAYS_IN_YEAR * ADULT_AGE;
+    return daysBetween(now, birthDate) >= DAYS_IN_YEAR * ADULT_AGE;
 }
 
 //task 9
