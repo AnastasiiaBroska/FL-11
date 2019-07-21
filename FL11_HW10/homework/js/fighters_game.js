@@ -5,7 +5,8 @@ class Fighter {
     constructor(fighter) {
         let _name = fighter.name;
         let _damage = fighter.damage;
-        let _health = fighter.hp;
+        let _totalHealth = fighter.hp;
+        let _health = _totalHealth;
         let _agility = fighter.agility;
         let _win = 0;
         let _loss = 0;
@@ -26,6 +27,9 @@ class Fighter {
 
         this.heal = (amountOfHealing) => {
             _health = _health + amountOfHealing;
+            if (_health > _totalHealth) {
+                _health = _totalHealth;
+            }
         };
 
         this.addWin = () => _win++;
